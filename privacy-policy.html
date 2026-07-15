@@ -33,24 +33,26 @@
 
   <h2>3. アクセス・収集するデータ</h2>
   <ul>
-    <li>本ツールは Google OAuth 2.0 を通じて、認可したアカウント自身の YouTube チャンネルへの動画アップロード権限(スコープ: <code>https://www.googleapis.com/auth/youtube.upload</code>)のみを取得します。</li>
+    <li>本ツールは Google OAuth 2.0 を通じて、認可したアカウント自身の YouTube チャンネルへの動画アップロード権限(スコープ: <code>https://www.googleapis.com/auth/youtube.upload</code>)を取得します。将来、自身のチャンネルのデータを分析する機能のために、読み取り専用スコープ(<code>youtube.readonly</code> 等)を追加で取得することがあります。</li>
     <li>本ツールが YouTube に送信するのは、開発者が制作した動画ファイルと、そのタイトル・説明文・タグ・サムネイル等のメタデータのみです。</li>
-    <li>本ツールは、視聴者・第三者のデータ、他のユーザーのチャンネルやコンテンツに関するデータには一切アクセスせず、収集・保存もしません。</li>
+    <li>本ツールは、コンテンツの企画・改善のための内部分析を目的として、YouTube Data API から公開データ(自身のチャンネルおよび他の公開チャンネルの動画タイトル・サムネイル・再生数・高評価数・動画URL・公開コメント等)を取得することがあります。</li>
+    <li>他のユーザーの非公開データや個人情報にはアクセスしません。取得した公開コメント等を、投稿者個人の特定やプロファイリングの目的で利用することはありません。</li>
     <li>Cookie、アクセス解析、広告技術は一切使用しません。</li>
   </ul>
 
   <h2>4. データの保存と共有</h2>
   <ul>
     <li>OAuth 認証トークンは、開発者のローカルPC上にのみ保存されます(外部サーバーには保存しません)。</li>
-    <li>取得した認証情報およびアップロードに関する情報を、第三者に提供・販売・共有することはありません。</li>
+    <li>API 経由で取得した公開データも、開発者のローカルPC上にのみ保存されます。保存した API データは、YouTube API サービスのデベロッパーポリシーに従い、保存後30日以内に更新または削除します。</li>
+    <li>取得した認証情報・アップロードに関する情報・分析用に取得したデータを、第三者に提供・販売・共有・再配布することはありません。</li>
     <li>外部へのデータ送信は、Google/YouTube の公式 API エンドポイントに対するもの以外に存在しません。</li>
   </ul>
 
   <h2>5. アクセス権の取り消しとデータの削除</h2>
   <ul>
     <li>ユーザー(開発者本人)は、Google のセキュリティ設定ページ <a href="https://security.google.com/settings/security/permissions">https://security.google.com/settings/security/permissions</a> からいつでも本ツールのアクセス権を取り消すことができます。</li>
-    <li>本ツールが保存する認可済みデータは OAuth トークンのみです。ローカルに保存されたトークンファイルを削除することで、保存された認可済みデータは完全に削除されます。</li>
-    <li>本ツールの利用を終了する場合、保存されたトークンは削除されます。トークン以外に YouTube API サービス経由で取得・保存しているデータはありません。</li>
+    <li>本ツールが保存するデータは、OAuth トークンと、分析用に取得した公開データのローカルキャッシュのみです。いずれもローカルファイルを削除することで完全に削除されます。</li>
+    <li>本ツールの利用を終了する場合、保存されたトークンおよび取得済みの API データはすべて削除されます。</li>
   </ul>
 
   <h2>6. お問い合わせ</h2>
@@ -72,24 +74,26 @@
 
   <h3>3. Data Accessed and Collected</h3>
   <ul>
-    <li>The tool obtains, via Google OAuth 2.0, only the permission to upload videos to the authorizing account's own YouTube channel (scope: <code>https://www.googleapis.com/auth/youtube.upload</code>).</li>
+    <li>The tool obtains, via Google OAuth 2.0, the permission to upload videos to the authorizing account's own YouTube channel (scope: <code>https://www.googleapis.com/auth/youtube.upload</code>). In the future, a read-only scope (e.g. <code>youtube.readonly</code>) may additionally be requested for analyzing the developer's own channel.</li>
     <li>The only data sent to YouTube are video files created by the developer and their metadata (title, description, tags, thumbnail).</li>
-    <li>The tool never accesses, collects, or stores data about viewers, third parties, or other users' channels or content.</li>
+    <li>For internal content-planning analysis, the tool may retrieve public data via the YouTube Data API (video titles, thumbnails, view counts, like counts, video URLs, and public comments of the developer's own channel and other public channels).</li>
+    <li>The tool never accesses non-public data or personal information of other users, and never uses retrieved public comments to identify or profile individual commenters.</li>
     <li>No cookies, analytics, or advertising technologies are used.</li>
   </ul>
 
   <h3>4. Data Storage and Sharing</h3>
   <ul>
     <li>OAuth tokens are stored only on the developer's local machine (never on external servers).</li>
-    <li>No authorized data is sold, shared, or transferred to any third party.</li>
+    <li>Public data retrieved via the API is likewise stored only on the developer's local machine. In accordance with the YouTube API Services Developer Policies, stored API data is refreshed or deleted within 30 days.</li>
+    <li>No authorized data or retrieved API data is sold, shared, redistributed, or transferred to any third party.</li>
     <li>The tool communicates only with official Google/YouTube API endpoints.</li>
   </ul>
 
   <h3>5. Revoking Access and Data Deletion</h3>
   <ul>
     <li>Access can be revoked at any time via Google security settings: <a href="https://security.google.com/settings/security/permissions">https://security.google.com/settings/security/permissions</a>.</li>
-    <li>The only authorized data the tool stores is the OAuth token. Deleting the local token file permanently deletes all stored authorized data.</li>
-    <li>When the tool is no longer used, stored tokens are deleted. No other data obtained via YouTube API Services is retained.</li>
+    <li>The data the tool stores consists only of the OAuth token and a local cache of retrieved public data. Deleting these local files permanently deletes all stored data.</li>
+    <li>When the tool is no longer used, all stored tokens and retrieved API data are deleted.</li>
   </ul>
 
   <h3>6. Contact</h3>

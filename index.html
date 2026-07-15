@@ -30,11 +30,12 @@
   <ul>
     <li><code>videos.insert</code> — 完成した動画ファイルのアップロードと、タイトル・説明文・タグ等のメタデータ設定</li>
     <li><code>thumbnails.set</code> — アップロードした動画へのサムネイル設定</li>
+    <li><code>videos.list</code> / <code>channels.list</code> / <code>search.list</code> / <code>playlistItems.list</code> / <code>commentThreads.list</code> — 自身のチャンネルの振り返りと、公開データに基づく市場調査(動画タイトル・サムネイル・再生数・高評価数・公開コメント等の取得)のための内部分析(計画中の機能)</li>
   </ul>
-  <p>認可は Google OAuth 2.0(スコープ: <code>youtube.upload</code> のみ)で行い、対象は開発者自身の Google アカウントに限られます。第三者のデータや他ユーザーのチャンネル・コンテンツには一切アクセスしません。</p>
+  <p>認可は Google OAuth 2.0(スコープ: <code>youtube.upload</code>。分析機能の導入時には読み取り専用スコープを追加予定)で行い、対象は開発者自身の Google アカウントに限られます。分析で取得するのは公開データのみで、他ユーザーの非公開データや個人情報にはアクセスしません。取得データはローカルでの内部分析にのみ使用し、再配布・販売は行いません。</p>
 
   <h2>English Summary</h2>
-  <p>VideoFactory is a personal, internal command-line tool developed and used solely by Ikko Kojima to upload self-produced educational videos to the developer's own YouTube channel. It is not publicly available. The tool uses <strong>YouTube API Services</strong> and calls only <code>videos.insert</code> and <code>thumbnails.set</code>, authorized via Google OAuth 2.0 with the <code>youtube.upload</code> scope for the developer's own account. See the <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a>.</p>
+  <p>VideoFactory is a personal, internal command-line tool developed and used solely by Ikko Kojima to upload self-produced educational videos to the developer's own YouTube channel. It is not publicly available. The tool uses <strong>YouTube API Services</strong>: it calls <code>videos.insert</code> and <code>thumbnails.set</code> for uploads, and (as a planned feature) read-only endpoints such as <code>videos.list</code>, <code>channels.list</code>, <code>search.list</code>, and <code>commentThreads.list</code> to retrieve public data for internal content-planning analysis. Authorization uses Google OAuth 2.0 for the developer's own account. Only public data is retrieved; it is analyzed locally and never redistributed. See the <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a>.</p>
 </main>
 <footer>
   <div class="inner">
