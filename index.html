@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VideoFactory — 個人用 YouTube アップロードツール</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="inner">
+    <h1>VideoFactory</h1>
+    <p class="tagline">開発者個人が自身の YouTube チャンネルへ動画をアップロードするための非公開コマンドラインツール</p>
+    <nav>
+      <a href="index.html">ホーム</a>
+      <a href="privacy-policy.html">プライバシーポリシー</a>
+      <a href="terms.html">利用規約</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <h2>VideoFactory について</h2>
+  <p>VideoFactory は、開発者(小島一航 / Ikko Kojima)が自作の教育系動画(参考文献を明示した日本語の教養エッセイ動画)を、開発者自身の YouTube チャンネルへアップロードするためだけに使用する、<strong>非公開の個人用コマンドラインツール</strong>です。一般への配布・提供・販売は行っておらず、ユーザーは開発者本人のみです。</p>
+
+  <div class="notice">
+    本ツールは <strong>YouTube API サービス(YouTube API Services)</strong>を利用しています。データの取り扱いについては<a href="privacy-policy.html">プライバシーポリシー</a>をご覧ください。
+  </div>
+
+  <h2>YouTube Data API の利用内容</h2>
+  <ul>
+    <li><code>videos.insert</code> — 完成した動画ファイルのアップロードと、タイトル・説明文・タグ等のメタデータ設定</li>
+    <li><code>thumbnails.set</code> — アップロードした動画へのサムネイル設定</li>
+  </ul>
+  <p>認可は Google OAuth 2.0(スコープ: <code>youtube.upload</code> のみ)で行い、対象は開発者自身の Google アカウントに限られます。第三者のデータや他ユーザーのチャンネル・コンテンツには一切アクセスしません。</p>
+
+  <h2>English Summary</h2>
+  <p>VideoFactory is a personal, internal command-line tool developed and used solely by Ikko Kojima to upload self-produced educational videos to the developer's own YouTube channel. It is not publicly available. The tool uses <strong>YouTube API Services</strong> and calls only <code>videos.insert</code> and <code>thumbnails.set</code>, authorized via Google OAuth 2.0 with the <code>youtube.upload</code> scope for the developer's own account. See the <a href="privacy-policy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a>.</p>
+</main>
+<footer>
+  <div class="inner">
+    <p><a href="privacy-policy.html">プライバシーポリシー / Privacy Policy</a> ・ <a href="terms.html">利用規約 / Terms of Service</a></p>
+    <p>This tool uses YouTube API Services. <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a> ・ <a href="https://policies.google.com/privacy">Google Privacy Policy</a></p>
+    <p>Contact: panteranerow@gmail.com</p>
+  </div>
+</footer>
+</body>
+</html>
